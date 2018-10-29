@@ -1,5 +1,5 @@
 # PageControl
-<img src="https://github.com/insiderdev/page-control/blob/master/tutorial-resources/demonstration.gif" /></a>
+<img src="https://github.com/insiderdev/page-control/blob/master/tutorial-resources/demonstration.gif" width=375, height=667/></a>
 <br><br/>
 
 
