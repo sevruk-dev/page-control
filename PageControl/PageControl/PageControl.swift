@@ -98,7 +98,7 @@ open class PageControl: UIControl {
     //MARK: private methods
     
     private lazy var currentPageIndicator: UIView = {
-        return pageIndicator(with: currentIndicatorDiameter, backgroundColor: currentIndicatorTintColor)
+        return self.pageIndicator(with: self.currentIndicatorDiameter, backgroundColor: self.currentIndicatorTintColor)
     }()
     private var pageIndicators: [UIView] = []
     
