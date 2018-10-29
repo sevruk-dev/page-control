@@ -1,9 +1,11 @@
 # PageControl
+[![CocoaPods](https://img.shields.io/cocoapods/p/InsiderPageControl.svg)](https://cocoapods.org/pods/InsiderPageControl)
+[![CocoaPods](https://img.shields.io/cocoapods/v/InsiderPageControl.svg)](http://cocoapods.org/pods/InsiderPageControl)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
+
+
 <img src="https://github.com/insiderdev/page-control/blob/master/tutorial-resources/demonstration.gif" width=375, height=667/></a>
 <br><br/>
-
-
-[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 
 ## Requirements
 - iOS 9.0+
