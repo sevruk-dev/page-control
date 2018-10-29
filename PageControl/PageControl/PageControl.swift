@@ -72,11 +72,11 @@ open class PageControl: UIControl {
     open var currentPage: Int = 0 {
         didSet {
             UIView.animate(withDuration: 0.1) { [weak self] in
-                guard let self = self, self.pageIndicators.count > self.currentPage else {
+                guard let strongSelf = self, strongSelf.pageIndicators.count > strongSelf.currentPage else {
                     return
                 }
-                let newCenter = self.pageIndicators[self.currentPage].center
-                self.currentPageIndicator.center = newCenter
+                let newCenter = strongSelf.pageIndicators[strongSelf.currentPage].center
+                strongSelf.currentPageIndicator.center = newCenter
             }
         }
     }

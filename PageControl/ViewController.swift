@@ -32,12 +32,12 @@ class ViewController: UIViewController {
     
     private func showDemo() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
-            guard let self = self else {
+            guard let strongSelf = self else {
                 return
             }
-            let currentPage = self.pageControl.currentPage
-            let numberOfPages = self.pageControl.numberOfPages - 1
-            self.pageControl.currentPage = currentPage == numberOfPages ? 0 : currentPage + 1
+            let currentPage = strongSelf.pageControl.currentPage
+            let numberOfPages = strongSelf.pageControl.numberOfPages - 1
+            strongSelf.pageControl.currentPage = currentPage == numberOfPages ? 0 : currentPage + 1
         })
     }
 
