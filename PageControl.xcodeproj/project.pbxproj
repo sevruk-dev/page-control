@@ -10,7 +10,6 @@
 		809675D92186A5C100269FF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809675D82186A5C100269FF8 /* AppDelegate.swift */; };
 		809675DB2186A5C200269FF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809675DA2186A5C200269FF8 /* ViewController.swift */; };
 		809675DE2186A5C200269FF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809675DC2186A5C200269FF8 /* Main.storyboard */; };
-		809675E02186A5C300269FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809675DF2186A5C300269FF8 /* Assets.xcassets */; };
 		809675E32186A5C300269FF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809675E12186A5C300269FF8 /* LaunchScreen.storyboard */; };
 		809675EB2186A5DB00269FF8 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809675EA2186A5DB00269FF8 /* PageControl.swift */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		809675D82186A5C100269FF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		809675DA2186A5C200269FF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		809675DD2186A5C200269FF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		809675DF2186A5C300269FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		809675E22186A5C300269FF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		809675E42186A5C300269FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809675EA2186A5DB00269FF8 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 				809675EA2186A5DB00269FF8 /* PageControl.swift */,
 				809675DA2186A5C200269FF8 /* ViewController.swift */,
 				809675DC2186A5C200269FF8 /* Main.storyboard */,
-				809675DF2186A5C300269FF8 /* Assets.xcassets */,
 				809675E12186A5C300269FF8 /* LaunchScreen.storyboard */,
 				809675E42186A5C300269FF8 /* Info.plist */,
 			);
@@ -126,7 +123,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				809675E32186A5C300269FF8 /* LaunchScreen.storyboard in Resources */,
-				809675E02186A5C300269FF8 /* Assets.xcassets in Resources */,
 				809675DE2186A5C200269FF8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
