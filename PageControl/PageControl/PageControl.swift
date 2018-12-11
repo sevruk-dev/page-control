@@ -108,7 +108,7 @@ open class PageControl: UIControl {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = backgroundColor
-        view.layer.cornerRadius = diameter / 2
+        view.layer.cornerRadius = diameter / 2.0
         return view
     }
     
@@ -179,8 +179,8 @@ open class PageControl: UIControl {
     private func horizontalConstraintsForIndicators() -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         
-        let isEvenNumber = Double(pageIndicators.count).truncatingRemainder(dividingBy: 2.0) == 0.0
-        let initialElementIndex = isEvenNumber ? (pageIndicators.count / 2) - 1 : (pageIndicators.count / 2)
+        let isNumberOfIndicatorsEven = Double(pageIndicators.count).truncatingRemainder(dividingBy: 2.0) == 0.0
+        let initialElementIndex = isNumberOfIndicatorsEven ? (pageIndicators.count / 2) - 1 : (pageIndicators.count / 2)
         let initialElement = pageIndicators[initialElementIndex]
         
         for index in 0...pageIndicators.count - 1 {
@@ -191,7 +191,7 @@ open class PageControl: UIControl {
                 let constant = spacing * CGFloat(index - initialElementIndex)
                 constraint = view.centerXAnchor.constraint(equalTo: initialElement.centerXAnchor, constant: constant)
             } else {
-                constraint = view.centerXAnchor.constraint(equalTo: centerXAnchor, constant: isEvenNumber ? -(spacing / 2) : 0.0)
+                constraint = view.centerXAnchor.constraint(equalTo: centerXAnchor, constant: isNumberOfIndicatorsEven ? -(spacing / 2.0) : 0.0)
             }
             
             constraints.append(constraint)
