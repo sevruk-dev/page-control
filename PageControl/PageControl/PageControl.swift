@@ -80,6 +80,12 @@ open class PageControl: UIControl {
         }
     }
     
+    open func minimumSize() -> CGSize {
+        let maxDiameter = max(indicatorDiameter, currentIndicatorDiameter)
+        let width = CGFloat(numberOfPages) * spacing + maxDiameter
+        return CGSize(width: width, height: maxDiameter)
+    }
+    
     override open func awakeFromNib() {
         super.awakeFromNib()
         setupViews()
