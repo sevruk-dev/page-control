@@ -82,7 +82,8 @@ open class PageControl: UIControl {
     
     open func minimumSize() -> CGSize {
         let maxDiameter = max(indicatorDiameter, currentIndicatorDiameter)
-        let width = CGFloat(numberOfPages) * spacing + maxDiameter
+        let diametersDifference = maxDiameter - min(indicatorDiameter, currentIndicatorDiameter)
+        let width = CGFloat(numberOfPages - 1) * spacing + CGFloat(numberOfPages) * indicatorDiameter + diametersDifference
         return CGSize(width: width, height: maxDiameter)
     }
     
@@ -194,10 +195,10 @@ open class PageControl: UIControl {
             let constraint: NSLayoutConstraint
             
             if (index != initialElementIndex) {
-                let constant = spacing * CGFloat(index - initialElementIndex)
+                let constant = (spacing + indicatorDiameter) * CGFloat(index - initialElementIndex)
                 constraint = view.centerXAnchor.constraint(equalTo: initialElement.centerXAnchor, constant: constant)
             } else {
-                constraint = view.centerXAnchor.constraint(equalTo: centerXAnchor, constant: isNumberOfIndicatorsEven ? -(spacing / 2.0) : 0.0)
+                constraint = view.centerXAnchor.constraint(equalTo: centerXAnchor, constant: isNumberOfIndicatorsEven ? -((spacing + indicatorDiameter) / 2.0) : 0.0)
             }
             
             constraints.append(constraint)
