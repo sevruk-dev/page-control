@@ -35,9 +35,8 @@ open class PageControl: UIControl {
     
     open var spacing: CGFloat = 22.0 {
         didSet {
-            //TODO: refactor to make it more efficient
-            removeViews()
-            setupViews()
+            NSLayoutConstraint.deactivate(horizontalConstraints)
+            setupHorizontalConstraints()
         }
     }
     
@@ -57,7 +56,7 @@ open class PageControl: UIControl {
         }
     }
     
-    open var indicatorTintColor: UIColor = UIColor(red: 216.0/255.0, green: 216.0/255.0, blue: 216/255.0, alpha: 1.0) {
+    open var indicatorTintColor: UIColor = UIColor(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, alpha: 1.0) {
         didSet {
             pageIndicators.forEach { $0.backgroundColor = indicatorTintColor }
         }
@@ -103,6 +102,7 @@ open class PageControl: UIControl {
     private var pageIndicators: [UIView] = []
     
     private var sizeConstraints: [NSLayoutConstraint] = []
+    private var horizontalConstraints: [NSLayoutConstraint] = []
     
     private func pageIndicator(with diameter: CGFloat, backgroundColor: UIColor?) -> UIView {
         let view = UIView(frame: .zero)
@@ -156,9 +156,28 @@ open class PageControl: UIControl {
     }
     
     private func setupLayout() {
-        var constraints = [NSLayoutConstraint]()
-        
         setupSizeConstraints()
+        setupHorizontalConstraints()
+        
+        let verticalConstraints = (pageIndicators + [currentPageIndicator]).map {
+            return $0.centerYAnchor.constraint(equalTo: centerYAnchor)
+        }
+        
+        NSLayoutConstraint.activate(verticalConstraints)
+    }
+    
+    private func setupHorizontalConstraints() {
+        horizontalConstraints = horizontalConstraintsForIndicators()
+        NSLayoutConstraint.activate(horizontalConstraints)
+    }
+    
+    private func setupSizeConstraints () {
+        sizeConstraints = sizeConstraintsForIndicators()
+        NSLayoutConstraint.activate(sizeConstraints)
+    }
+    
+    private func horizontalConstraintsForIndicators() -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
         
         let isEvenNumber = Double(pageIndicators.count).truncatingRemainder(dividingBy: 2.0) == 0.0
         let initialElementIndex = isEvenNumber ? (pageIndicators.count / 2) - 1 : (pageIndicators.count / 2)
@@ -169,7 +188,8 @@ open class PageControl: UIControl {
             let constraint: NSLayoutConstraint
             
             if (index != initialElementIndex) {
-                constraint = view.centerXAnchor.constraint(equalTo: initialElement.centerXAnchor, constant: (CGFloat(index - initialElementIndex) * spacing))
+                let constant = spacing * CGFloat(index - initialElementIndex)
+                constraint = view.centerXAnchor.constraint(equalTo: initialElement.centerXAnchor, constant: constant)
             } else {
                 constraint = view.centerXAnchor.constraint(equalTo: centerXAnchor, constant: isEvenNumber ? -(spacing / 2) : 0.0)
             }
@@ -177,16 +197,7 @@ open class PageControl: UIControl {
             constraints.append(constraint)
         }
         
-        (pageIndicators + [currentPageIndicator]).forEach {
-            constraints.append($0.centerYAnchor.constraint(equalTo: centerYAnchor))
-        }
-        
-        NSLayoutConstraint.activate(constraints)
-    }
-    
-    private func setupSizeConstraints () {
-        sizeConstraints = sizeConstraintsForIndicators()
-        NSLayoutConstraint.activate(sizeConstraints)
+        return constraints
     }
     
     private func sizeConstraintsForIndicators() -> [NSLayoutConstraint] {
