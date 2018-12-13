@@ -124,6 +124,7 @@ open class PageControl: UIControl {
         for view in subviews {
             pageIndicators = []
             sizeConstraints = []
+            horizontalConstraints = []
             NSLayoutConstraint.deactivate(view.constraints)
             view.removeFromSuperview()
         }
