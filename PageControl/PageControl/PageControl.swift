@@ -131,6 +131,7 @@ open class PageControl: UIControl {
     }
     
     private func setupViews() {
+        clipsToBounds = true
         if numberOfPages != 0 {
             for _ in 0..<numberOfPages {
                 pageIndicators.append(pageIndicator(with: indicatorDiameter, backgroundColor: indicatorTintColor))
@@ -225,5 +226,25 @@ open class PageControl: UIControl {
             view.heightAnchor.constraint(equalToConstant: constant),
             view.widthAnchor.constraint(equalTo: view.heightAnchor)
         ]
+    }
+}
+
+extension PageControl {
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        if numberOfPages == 0 {
+            return .zero
+        } else {
+            let size = self.size(forNumberOfPages: numberOfPages)
+            let width: CGFloat = min(superview?.bounds.width ?? .greatestFiniteMagnitude, size.width)
+            return CGSize(width: width, height: size.height)
+        }
+    }
+
+    open override var intrinsicContentSize: CGSize {
+        if numberOfPages == 0 {
+            return .zero
+        } else {
+            return size(forNumberOfPages: numberOfPages)
+        }
     }
 }
