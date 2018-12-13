@@ -22,6 +22,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
 import UIKit
 
 open class PageControl: UIControl {
@@ -30,6 +31,18 @@ open class PageControl: UIControl {
         didSet {
             removeViews()
             setupViews()
+        }
+    }
+    
+    open var currentPage: Int = 0 {
+        didSet {
+            UIView.animate(withDuration: 0.1) { [weak self] in
+                guard let strongSelf = self, strongSelf.pageIndicators.count > strongSelf.currentPage else {
+                    return
+                }
+                let newCenter = strongSelf.pageIndicators[strongSelf.currentPage].center
+                strongSelf.currentPageIndicator.center = newCenter
+            }
         }
     }
     
@@ -68,22 +81,10 @@ open class PageControl: UIControl {
         }
     }
     
-    open var currentPage: Int = 0 {
-        didSet {
-            UIView.animate(withDuration: 0.1) { [weak self] in
-                guard let strongSelf = self, strongSelf.pageIndicators.count > strongSelf.currentPage else {
-                    return
-                }
-                let newCenter = strongSelf.pageIndicators[strongSelf.currentPage].center
-                strongSelf.currentPageIndicator.center = newCenter
-            }
-        }
-    }
-    
-    open func minimumSize() -> CGSize {
+    open func size(forNumberOfPages pagesNumber: Int) -> CGSize {
         let maxDiameter = max(indicatorDiameter, currentIndicatorDiameter)
         let diametersDifference = maxDiameter - min(indicatorDiameter, currentIndicatorDiameter)
-        let width = CGFloat(numberOfPages - 1) * spacing + CGFloat(numberOfPages) * indicatorDiameter + diametersDifference
+        let width = CGFloat(pagesNumber - 1) * spacing + CGFloat(pagesNumber) * indicatorDiameter + diametersDifference
         return CGSize(width: width, height: maxDiameter)
     }
     
