@@ -3,7 +3,7 @@
 //  PageControl
 //
 //  Created by Vova Seuruk on 10/29/18.
-//  Copyright © 2018 insider.io. All rights reserved.
+//  Copyright © 2018 Sevruk Development. All rights reserved.
 //
 
 import UIKit
