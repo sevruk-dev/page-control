@@ -2,7 +2,7 @@
 //  PageControl.swift
 //
 //  Created by Vova Seuruk on 10/29/18.
-//  Copyright © 2018 insider.io. All rights reserved.
+//  Copyright © 2018 Sevruk Development. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
