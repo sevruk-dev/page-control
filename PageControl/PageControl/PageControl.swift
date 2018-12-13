@@ -124,6 +124,7 @@ open class PageControl: UIControl {
     
     private func pageIndicator(with diameter: CGFloat, backgroundColor: UIColor?) -> UIView {
         let view = UIView(frame: .zero)
+        view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = backgroundColor
         view.layer.cornerRadius = diameter / 2.0
@@ -141,7 +142,6 @@ open class PageControl: UIControl {
     }
     
     private func setupViews() {
-        clipsToBounds = true
         if numberOfPages != 0 {
             for _ in 0..<numberOfPages {
                 pageIndicators.append(pageIndicator(with: indicatorDiameter, backgroundColor: indicatorTintColor))
