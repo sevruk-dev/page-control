@@ -91,10 +91,11 @@ open class PageControl: UIControl {
     /// Used to size control to fit a certian number of pages.
     /// - Parameter pagesNumber: A number of pages to calculate size for.
     /// - Returns: Minimum size required to fit pageControl with certian number of pages.
-    open func size(forNumberOfPages pagesNumber: Int) -> CGSize {
+    open func size(forNumberOfPages numberOfPages: Int) -> CGSize {
+        guard numberOfPages > 0 else { return .zero }
         let maxDiameter = max(indicatorDiameter, currentIndicatorDiameter)
         let diametersDifference = maxDiameter - min(indicatorDiameter, currentIndicatorDiameter)
-        let width = CGFloat(pagesNumber - 1) * spacing + CGFloat(pagesNumber) * indicatorDiameter + diametersDifference
+        let width = CGFloat(numberOfPages - 1) * spacing + CGFloat(numberOfPages) * indicatorDiameter + diametersDifference
         return CGSize(width: width, height: maxDiameter)
     }
     
