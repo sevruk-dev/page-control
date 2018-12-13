@@ -27,6 +27,7 @@ import UIKit
 
 open class PageControl: UIControl {
     
+    /// The number of page indicators to display.
     open var numberOfPages: Int = 3 {
         didSet {
             removeViews()
@@ -34,6 +35,7 @@ open class PageControl: UIControl {
         }
     }
     
+    /// The current page, displayed as a filled circle.
     open var currentPage: Int = 0 {
         didSet {
             UIView.animate(withDuration: 0.1) { [weak self] in
@@ -46,6 +48,7 @@ open class PageControl: UIControl {
         }
     }
     
+    /// The spacing between page indicators.
     open var spacing: CGFloat = 22.0 {
         didSet {
             NSLayoutConstraint.deactivate(horizontalConstraints)
@@ -53,6 +56,7 @@ open class PageControl: UIControl {
         }
     }
     
+    /// Diameter of page indicator.
     open var indicatorDiameter: CGFloat = 6.0 {
         didSet {
             NSLayoutConstraint.deactivate(sizeConstraints)
@@ -61,6 +65,7 @@ open class PageControl: UIControl {
         }
     }
     
+    /// Diameter of current page indicator.
     open var currentIndicatorDiameter: CGFloat = 10.0 {
         didSet {
             NSLayoutConstraint.deactivate(sizeConstraints)
@@ -69,18 +74,23 @@ open class PageControl: UIControl {
         }
     }
     
+    /// Color of page indicator.
     open var indicatorTintColor: UIColor = UIColor(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, alpha: 1.0) {
         didSet {
             pageIndicators.forEach { $0.backgroundColor = indicatorTintColor }
         }
     }
     
+    /// Color of current page indicator.
     open var currentIndicatorTintColor: UIColor = UIColor(red: 255.0/255.0, green: 52.0/255.0, blue: 130.0/255.0, alpha: 1.0) {
         didSet {
             currentPageIndicator.backgroundColor = currentIndicatorTintColor
         }
     }
     
+    /// Used to size control to fit a certian number of pages.
+    /// - Parameter pagesNumber: A number of pages to calculate size for.
+    /// - Returns: Minimum size required to fit pageControl with certian number of pages.
     open func size(forNumberOfPages pagesNumber: Int) -> CGSize {
         let maxDiameter = max(indicatorDiameter, currentIndicatorDiameter)
         let diametersDifference = maxDiameter - min(indicatorDiameter, currentIndicatorDiameter)
@@ -228,6 +238,8 @@ open class PageControl: UIControl {
         ]
     }
 }
+
+// MARK: - Self sizing
 
 extension PageControl {
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
