@@ -3,8 +3,8 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/InsiderPageControl.svg)](http://cocoapods.org/pods/InsiderPageControl)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 
-
-<img src="https://github.com/insiderdev/page-control/blob/master/tutorial-resources/demonstration.gif" width=375, height=667/></a>
+<img align="right" src="https://github.com/insiderdev/page-control/blob/master/tutorial-resources/demonstration.gif" width=356, height=670/>
+</a>
 <br><br/>
 
 ## Requirements
@@ -17,7 +17,7 @@
 
 Add folowing line to Podfile and run 'pod instal'.
 ```
-pod 'Insider-PageControl'
+pod 'Sevruk-PageControl'
 ``` 
 
 Or just drag and drop FoldingCell.swift file to your project
@@ -36,7 +36,7 @@ Or just drag and drop FoldingCell.swift file to your project
 ## Usage without storyboard
 Create a PageControl view and add it to view hierarchy. 
 ``` swift
-let pageControl = PageControl(frame: CGRect(x: 0.0, y: 0.0, width: 58.0, height: 10.0))
+let pageControl = PageControl()
 addSubview(pageControl)
 ```
 
