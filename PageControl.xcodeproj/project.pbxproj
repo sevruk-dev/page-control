@@ -153,7 +153,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = insider.io;
+				ORGANIZATIONNAME = "Sevruk Development";
 				TargetAttributes = {
 					8023970A21C23CD600AB064A = {
 						CreatedOnToolsVersion = 10.0;
