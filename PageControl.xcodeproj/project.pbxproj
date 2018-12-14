@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8023971521C23D2000AB064A /* PageControlParityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8023970421C23AF700AB064A /* PageControlParityTest.swift */; };
+		8023971721C2450500AB064A /* PageControlInterfaceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8023971621C2450500AB064A /* PageControlInterfaceTest.swift */; };
 		809675D92186A5C100269FF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809675D82186A5C100269FF8 /* AppDelegate.swift */; };
 		809675DB2186A5C200269FF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809675DA2186A5C200269FF8 /* ViewController.swift */; };
 		809675DE2186A5C200269FF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809675DC2186A5C200269FF8 /* Main.storyboard */; };
@@ -14,7 +16,21 @@
 		809675EB2186A5DB00269FF8 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809675EA2186A5DB00269FF8 /* PageControl.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8023971021C23CD600AB064A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 809675CD2186A5C100269FF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 809675D42186A5C100269FF8;
+			remoteInfo = PageControl;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8023970421C23AF700AB064A /* PageControlParityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlParityTest.swift; sourceTree = "<group>"; };
+		8023970B21C23CD600AB064A /* PageControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PageControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8023970F21C23CD600AB064A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8023971621C2450500AB064A /* PageControlInterfaceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlInterfaceTest.swift; sourceTree = "<group>"; };
 		809675D52186A5C100269FF8 /* PageControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809675D82186A5C100269FF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		809675DA2186A5C200269FF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +41,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8023970821C23CD600AB064A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		809675D22186A5C100269FF8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -35,10 +58,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8023970C21C23CD600AB064A /* PageControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				8023970421C23AF700AB064A /* PageControlParityTest.swift */,
+				8023971621C2450500AB064A /* PageControlInterfaceTest.swift */,
+				8023970F21C23CD600AB064A /* Info.plist */,
+			);
+			path = PageControlTests;
+			sourceTree = "<group>";
+		};
 		809675CC2186A5C100269FF8 = {
 			isa = PBXGroup;
 			children = (
 				809675D72186A5C100269FF8 /* PageControl */,
+				8023970C21C23CD600AB064A /* PageControlTests */,
 				809675D62186A5C100269FF8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				809675D52186A5C100269FF8 /* PageControl.app */,
+				8023970B21C23CD600AB064A /* PageControlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +110,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8023970A21C23CD600AB064A /* PageControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8023971221C23CD600AB064A /* Build configuration list for PBXNativeTarget "PageControlTests" */;
+			buildPhases = (
+				8023970721C23CD600AB064A /* Sources */,
+				8023970821C23CD600AB064A /* Frameworks */,
+				8023970921C23CD600AB064A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8023971121C23CD600AB064A /* PBXTargetDependency */,
+			);
+			name = PageControlTests;
+			productName = PageControlTests;
+			productReference = 8023970B21C23CD600AB064A /* PageControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		809675D42186A5C100269FF8 /* PageControl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 809675E72186A5C300269FF8 /* Build configuration list for PBXNativeTarget "PageControl" */;
@@ -100,8 +153,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = insider.io;
+				ORGANIZATIONNAME = "Sevruk Development";
 				TargetAttributes = {
+					8023970A21C23CD600AB064A = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 809675D42186A5C100269FF8;
+					};
 					809675D42186A5C100269FF8 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -121,11 +178,19 @@
 			projectRoot = "";
 			targets = (
 				809675D42186A5C100269FF8 /* PageControl */,
+				8023970A21C23CD600AB064A /* PageControlTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8023970921C23CD600AB064A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		809675D32186A5C100269FF8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +203,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8023970721C23CD600AB064A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8023971721C2450500AB064A /* PageControlInterfaceTest.swift in Sources */,
+				8023971521C23D2000AB064A /* PageControlParityTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		809675D12186A5C100269FF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,6 +223,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8023971121C23CD600AB064A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 809675D42186A5C100269FF8 /* PageControl */;
+			targetProxy = 8023971021C23CD600AB064A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		809675DC2186A5C200269FF8 /* Main.storyboard */ = {
@@ -170,6 +252,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8023971321C23CD600AB064A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B89956DSTQ;
+				INFOPLIST_FILE = PageControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevruk-dev.PageControlTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PageControl.app/PageControl";
+			};
+			name = Debug;
+		};
+		8023971421C23CD600AB064A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B89956DSTQ;
+				INFOPLIST_FILE = PageControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sevruk-dev.PageControlTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PageControl.app/PageControl";
+			};
+			name = Release;
+		};
 		809675E52186A5C300269FF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -290,14 +412,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 82R88ME85Q;
+				DEVELOPMENT_TEAM = B89956DSTQ;
 				INFOPLIST_FILE = PageControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.insider.io.PageControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sevruk.PageControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -308,14 +430,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 82R88ME85Q;
+				DEVELOPMENT_TEAM = B89956DSTQ;
 				INFOPLIST_FILE = PageControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.insider.io.PageControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sevruk.PageControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -325,6 +447,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8023971221C23CD600AB064A /* Build configuration list for PBXNativeTarget "PageControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8023971321C23CD600AB064A /* Debug */,
+				8023971421C23CD600AB064A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		809675D02186A5C100269FF8 /* Build configuration list for PBXProject "PageControl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
