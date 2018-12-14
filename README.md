@@ -1,6 +1,6 @@
 # PageControl
-[![CocoaPods](https://img.shields.io/cocoapods/p/InsiderPageControl.svg)](https://cocoapods.org/pods/InsiderPageControl)
-[![CocoaPods](https://img.shields.io/cocoapods/v/InsiderPageControl.svg)](http://cocoapods.org/pods/InsiderPageControl)
+[![CocoaPods](https://img.shields.io/cocoapods/p/Sevruk-PageControl.svg)](https://cocoapods.org/pods/Sevruk-PageControl)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Sevruk-PageControl.svg)](http://cocoapods.org/pods/Sevruk-PageControl)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 
 <img align="right" src="https://github.com/insiderdev/page-control/blob/master/tutorial-resources/demonstration.gif" width=356, height=670/>
