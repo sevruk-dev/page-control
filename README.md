@@ -27,16 +27,63 @@ Or just drag and drop FoldingCell.swift file to your project
 
 ![1.1](https://raw.githubusercontent.com/insiderdev/page-control/master/tutorial-resources/1.1.png)
 
-3) In view controller create an outlet to a view from storyboard. 
+3) In view controller create an outlet to a view from storyboard and you're ready to go.
 
 ![1.2](https://raw.githubusercontent.com/insiderdev/page-control/master/tutorial-resources/1.2.png)
 
+Here is code example that uses UIScrollView.
+
+``` swift
+import UIKit
+import PageControl
+
+class ViewController: UIViewController, UIScrollViewDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageControl: PageControl!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scrollView.delegate = self
+        pageControl.numberOfPages = Int(scrollView.contentSize.width / scrollView.bounds.width)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = scrollView.contentOffset.x / scrollView.bounds.width
+        pageControl.currentPage = page
+    }
+}
+```
+
 ## Usage without storyboard
-Create a PageControl view and add it to view hierarchy. 
+
+1) Create a PageControl view and add it to your view hierarchy. 
 ``` swift
 let pageControl = PageControl()
 addSubview(pageControl)
 ```
+
+2) Setup pageControl with your needs.
+``` swift
+pageControl.numberOfPages = 5
+pageControl.spacing = 14.0
+pageControl.indicatorDiameter = 8.0
+pageControl.currentIndicatorDiameter = 12.0
+pageControl.indicatorTintColor = .darkGray
+pageControl.currentIndicatorTintColor = .green
+```
+
+3) And update current page when needed.
+``` swift
+pageControl.currentPage = 1
+```
+
+## Contributing 
+I'd love for you to contribute in PageControl. Feel free to submit your pull requests.
+
+## Author
+
+Feel free to contact me via linkedin [Vova Sevruk](https://www.linkedin.com/in/vova-sevruk-838b9210b/) or via email: vovaseuruk@gmail.com
 
 ## Licence
 
