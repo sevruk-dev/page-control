@@ -22,7 +22,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import UIKit
 
 open class PageControl: UIControl {
@@ -39,11 +38,11 @@ open class PageControl: UIControl {
     open var currentPage: Int = 0 {
         didSet {
             UIView.animate(withDuration: 0.1) { [weak self] in
-                guard let strongSelf = self, strongSelf.pageIndicators.count > strongSelf.currentPage else {
+                guard let self = self, self.pageIndicators.count > self.currentPage else {
                     return
                 }
-                let newCenter = strongSelf.pageIndicators[strongSelf.currentPage].center
-                strongSelf.currentPageIndicator.center = newCenter
+                let newCenter = self.pageIndicators[self.currentPage].center
+                self.currentPageIndicator.center = newCenter
             }
         }
     }
@@ -75,14 +74,14 @@ open class PageControl: UIControl {
     }
     
     /// Color of page indicator.
-    open var indicatorTintColor: UIColor = UIColor(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, alpha: 1.0) {
+    open var indicatorTintColor: UIColor = UIColor.white.withAlphaComponent(0.5) {
         didSet {
             pageIndicators.forEach { $0.backgroundColor = indicatorTintColor }
         }
     }
     
     /// Color of current page indicator.
-    open var currentIndicatorTintColor: UIColor = UIColor(red: 255.0/255.0, green: 52.0/255.0, blue: 130.0/255.0, alpha: 1.0) {
+    open var currentIndicatorTintColor: UIColor = .white {
         didSet {
             currentPageIndicator.backgroundColor = currentIndicatorTintColor
         }
@@ -116,15 +115,17 @@ open class PageControl: UIControl {
     //MARK: private methods
     
     private lazy var currentPageIndicator: UIView = {
-        return self.pageIndicator(with: self.currentIndicatorDiameter, backgroundColor: self.currentIndicatorTintColor)
+        return self.pageIndicator(with: self.currentIndicatorDiameter, backgroundColor: self.currentIndicatorTintColor, currentIndicator: true)
     }()
+    
     private var pageIndicators: [UIView] = []
     
     private var sizeConstraints: [NSLayoutConstraint] = []
     private var horizontalConstraints: [NSLayoutConstraint] = []
     
-    private func pageIndicator(with diameter: CGFloat, backgroundColor: UIColor?) -> UIView {
-        let view = UIView(frame: .zero)
+    private func pageIndicator(with diameter: CGFloat, backgroundColor: UIColor?, currentIndicator: Bool = false) -> UIView {
+        let frame = (currentIndicator) ? CGRect(x: 0, y: 0, width: diameter, height: diameter) : .zero
+        let view = UIView(frame: frame)
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = backgroundColor
@@ -152,11 +153,11 @@ open class PageControl: UIControl {
             
             setupLayout()
             
-            setCurrrentIndicatorLocation()
+            setCurrentIndicatorLocation()
         }
     }
     
-    private func setCurrrentIndicatorLocation() {
+    private func setCurrentIndicatorLocation() {
         if numberOfPages != 0 {
             let firstDot = pageIndicators[0]
             currentPageIndicator.center = firstDot.center
@@ -180,7 +181,7 @@ open class PageControl: UIControl {
         setupSizeConstraints()
         setupHorizontalConstraints()
         
-        let verticalConstraints = (pageIndicators + [currentPageIndicator]).map {
+        let verticalConstraints = pageIndicators.map {
             return $0.centerYAnchor.constraint(equalTo: centerYAnchor)
         }
         
@@ -224,7 +225,6 @@ open class PageControl: UIControl {
     private func sizeConstraintsForIndicators() -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         
-        constraints.append(contentsOf: constraintsWithHeightAndWidth(equalTo: currentIndicatorDiameter, for: currentPageIndicator))
         pageIndicators.forEach { view in
             constraints.append(contentsOf: constraintsWithHeightAndWidth(equalTo: indicatorDiameter, for: view))
         }
@@ -235,14 +235,14 @@ open class PageControl: UIControl {
     private func constraintsWithHeightAndWidth(equalTo constant: CGFloat, for view: UIView) -> [NSLayoutConstraint] {
         return [
             view.heightAnchor.constraint(equalToConstant: constant),
-            view.widthAnchor.constraint(equalTo: view.heightAnchor)
+            view.widthAnchor.constraint(equalToConstant: constant)
         ]
     }
 }
 
 // MARK: - Self sizing
-
 extension PageControl {
+    
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
         if numberOfPages == 0 {
             return .zero
@@ -252,7 +252,7 @@ extension PageControl {
             return CGSize(width: width, height: size.height)
         }
     }
-
+    
     open override var intrinsicContentSize: CGSize {
         if numberOfPages == 0 {
             return .zero
